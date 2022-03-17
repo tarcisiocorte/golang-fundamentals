@@ -5,9 +5,11 @@ package main
 import "fmt"
 
 func main() {
-	var x uint8 = 225
-	fmt.Println(x, x-3)
+	a := 20.45
+	b := 34.89
 
-	var y int16 = 32767
-	fmt.Println(y+2, y-2)
+	c := b - a
+
+	fmt.Printf("Result is: %f", c)
+	fmt.Printf("\nThe type of c is: %T", c)
 }
