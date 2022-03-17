@@ -5,11 +5,11 @@ package main
 import "fmt"
 
 func main() {
-	a := 20.45
-	b := 34.89
+	var a complex128 = complex(6, 2)
+	var b complex64 = complex(9, 2)
+	fmt.Println(a)
+	fmt.Println(b)
 
-	c := b - a
-
-	fmt.Printf("Result is: %f", c)
-	fmt.Printf("\nThe type of c is: %T", c)
+	fmt.Printf("The type of a is %T and "+
+		"the type of b is %T", a, b)
 }
