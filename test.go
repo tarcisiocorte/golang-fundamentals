@@ -5,16 +5,10 @@ package main
 import "fmt"
 
 func main() {
-	str1 := "AAA"
-	str2 := "aaa"
-	str3 := "aAa"
-	result1 := str1 == str2
-	result2 := str2 == str3
+	str := "AAA"
 
-	fmt.Println(result1)
-	fmt.Println(result2)
-
-	fmt.Printf("The type of result1 is %T and "+
-		"the type of result2 is %T",
-		result1, result2)
+	fmt.Printf("Length of the string is:%d",
+		len(str))
+	fmt.Printf("\nString is: %s", str)
+	fmt.Printf("\nType of str is: %T", str)
 }
