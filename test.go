@@ -2,11 +2,11 @@
 // Click here and start typing.
 package main
 
-import "fmt"
-
 func main() {
-	const Correct = true
-	fmt.Println("Life is good: ", Correct)
-	const TEXT = "a small wording"
-	fmt.Println("See this text: ", TEXT)
+
+	const untypedInteger = 123
+	const untypedFloating typed = 123.12
+
+	const typedInteger int = 123
+	const typedFloatingPoint float64 = 123.12
 }
