@@ -4,12 +4,31 @@ import "fmt"
 
 func main() {
 
-	const trueConst = true
-	type myBool bool
-	var defaultBool = trueConst
-	var customBool myBool = trueConst
+	var p int = 45
+	var q int = 50
 
-	fmt.Println(defaultBool)
-	fmt.Println(customBool)
+	// “=”(Simple Assignment)
+	p = q
+	fmt.Println(p)
+
+	// “+=”(Add Assignment)
+	p += q
+	fmt.Println(p)
+
+	//“-=”(Subtract Assignment)
+	p -= q
+	fmt.Println(p)
+
+	// “*=”(Multiply Assignment)
+	p *= q
+	fmt.Println(p)
+
+	// “/=”(Division Assignment)
+	p /= q
+	fmt.Println(p)
+
+	// “%=”(Modulus Assignment)
+	p %= q
+	fmt.Println(p)
 
 }
