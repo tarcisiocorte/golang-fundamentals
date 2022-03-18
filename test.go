@@ -1,21 +1,15 @@
-// You can edit this code!
-// Click here and start typing.
 package main
 
 import "fmt"
 
 func main() {
 
-	const A = "GFG"
-	var B = "GeeksforGeeks"
+	const trueConst = true
+	type myBool bool
+	var defaultBool = trueConst
+	var customBool myBool = trueConst
 
-	// Concat strings.
-	var helloWorld = A + " " + B
-	helloWorld += "!"
-	fmt.Println(helloWorld)
-
-	// Compare strings.
-	fmt.Println(A == "GFG")
-	fmt.Println(B < A)
+	fmt.Println(defaultBool)
+	fmt.Println(customBool)
 
 }
