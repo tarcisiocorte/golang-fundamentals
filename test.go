@@ -2,11 +2,20 @@
 // Click here and start typing.
 package main
 
+import "fmt"
+
 func main() {
 
-	const untypedInteger = 123
-	const untypedFloating typed = 123.12
+	const A = "GFG"
+	var B = "GeeksforGeeks"
 
-	const typedInteger int = 123
-	const typedFloatingPoint float64 = 123.12
+	// Concat strings.
+	var helloWorld = A + " " + B
+	helloWorld += "!"
+	fmt.Println(helloWorld)
+
+	// Compare strings.
+	fmt.Println(A == "GFG")
+	fmt.Println(B < A)
+
 }
