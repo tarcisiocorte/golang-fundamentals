@@ -4,31 +4,47 @@ import "fmt"
 
 func main() {
 
-	var p int = 45
-	var q int = 50
+	var s1 string
+	s1 = "Learning Go!"
+	fmt.Println(s1)
 
-	// “=”(Simple Assignment)
-	p = q
-	fmt.Println(p)
+	var k int = 6
+	var i = 5
+	var j = 5.6
 
-	// “+=”(Add Assignment)
-	p += q
-	fmt.Println(p)
+	fmt.Println("i:", i, "j:", j, "k:", k)
 
-	//“-=”(Subtract Assignment)
-	p -= q
-	fmt.Println(p)
+	var s2 = "Go!"
+	_ = s2
 
-	// “*=”(Multiply Assignment)
-	p *= q
-	fmt.Println(p)
+	var ii, jj int
+	ii, jj = 5, 8
 
-	// “/=”(Division Assignment)
-	p /= q
-	fmt.Println(p)
+	ii, jj = jj, ii
 
-	// “%=”(Modulus Assignment)
-	p %= q
-	fmt.Println(p)
+	fmt.Println(ii, jj)
+
+	s3 := "Learning golang!"
+	_ = s3
+
+	car, cost := "Audi", 50000
+	fmt.Println(car, cost)
+
+	var deleted = false
+	deleted, file := true, "a.txt"
+	_, _ = deleted, file
+
+	sum := 5 + 2.5
+	fmt.Println(sum)
+
+	var (
+		age       float64
+		firstName string
+		gender    bool
+	)
+	_, _, _ = age, firstName, gender
+
+	var a, b int
+	_, _ = a, b
 
 }
