@@ -3,32 +3,89 @@ package main
 import "fmt"
 
 func main() {
+	// To declare a constant and give it a name, we use the const keyword
+	// Constants need to be initialized when declared
+	const days int = 7 // typed constant
+	const pi = 3.14    // untyped constant
 
-	fmt.Println("Hello Go World!") // => Hello Go World!
-	var name, age = "Andrei", 35
-	fmt.Println(name, "is", age, "years old.")
+	// There are ONLY boolean constants, rune constants, integer constants,
+	// floating-point constants, complex constants, and string constants.
 
-	a, b, c := 10, 15.5, "Gophers"
-	grades := []int{10, 20, 30}
+	// Declaring multiple (grouped) constants
+	const (
+		a         = 5   // untyped constant
+		b float64 = 0.1 // typed constant
+	)
 
-	fmt.Printf("a is %d, b is %f, c is %s \n", a, b, c) // => a is 10, b is 15.500000, c is Gophers
-	fmt.Printf("%q\n", c)                               // => "Gophers"
-	fmt.Printf("%v\n", grades)                          // => [10 20 30]
-	fmt.Printf("%#v\n", grades)                         // => b is of type float64 and grades is of type []int
-	fmt.Printf("b is of type %T and grades is of type %T\n", b, grades)
-	// => b is of type float64 and grades is of type []int
-	fmt.Printf("The address of a: %p\n", &a) // => The address of a: 0xc000016128
-	fmt.Printf("%c and %c\n", 100, 51011)    // =>  d and 읃  (runes for code points 101 and 51011)
+	const n, m int = 4, 5
 
-	const pi float64 = 3.14159265359
-	fmt.Printf("pi is %.4f\n", pi) // => formatting with 4 decimal points
+	const (
+		min1 = -500
+		max1 //gets its type and value form the previous constant. It's 500
+		max2 //in a grouped constants, a constant repeats the previous one -> 500
+	)
 
-	// %b -> base 2
-	// %x -> base 16
-	fmt.Printf("255 in base 2 is %b\n", 255)  //  => 255 in base 2 is 11111111
-	fmt.Printf("101 in base 16 is %x\n", 101) // => 101 in base 16 is 65
+	// CONSTANTS RULES
 
-	// fmt.Sprintf() returns a string. Uses the same verbs as fmt.Printf()
-	s := fmt.Sprintf("a is %d, b is %f, c is %s \n", a, b, c)
-	fmt.Println(s) // => a is 10, b is 15.500000, c is Gophers
+	// 1. You cannot change a constant
+	const temp int = 100
+	// temp = 50 //compile-time error
+
+	// 2. You cannot initiate a constant at runtime (constants belong to compile-time)
+	// const power = math.Pow(2, 3) //error, functions calls belong to runtime
+
+	// 3. You cannot use a variable to initialize a constant
+	t := 5
+	// error, variables belong to runtime and you cannot initialize a const to runtime values
+	// const tc = t
+
+	// 4. You can use a function like len() to initialize a const if it has as argument
+	// a constant string literal (not a variable)
+	// a string literal is an untyped constant
+
+	const l1 = len("Hello") //ok
+
+	str := "Hello"
+	// const l2 = len(str) //error, str is a variable and belongs to runtime
+
+	_, _ = t, str
+
+	// UNTYPED CONSTANTS
+	const x = 5
+	const y float64 = 1.1
+
+	var v1 int = 5
+	var v2 float64 = 1.1
+
+	fmt.Println(x * y)
+	// => 5.5, No Error because x is untyped and gets its type when its used first time (float64).
+
+	// fmt.Println(v1 * v2)
+	// => Error: invalid operation: v1 * v2 (mismatched types int and float64)
+	_, _ = v1, v2
+
+	// IOTA
+	// iota is number generator for constants which starts from zero
+	// and is incremented by 1 automatically.
+
+	const (
+		c1 = iota
+		c2 = iota
+		c3 = iota
+	)
+	fmt.Println(c1, c2, c3) // => 0 1 2
+
+	const (
+		North = iota //by default 0
+		East         //omitting type and value means, repeating its type and value so East = iota = 1 (it increments by 1 automatically)
+		South        // -> 2
+		West         // -> 3
+	)
+
+	// Initializing the constants using a step:
+	const (
+		c11 = iota * 2 // -> 0
+		c22            // -> 2
+		c33            // -> 4
+	)
 }
