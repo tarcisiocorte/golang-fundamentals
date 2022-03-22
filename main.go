@@ -1,39 +1,64 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	a, b := 10, 5.5
 
-	fmt.Println(a + 5)   // => 15
-	fmt.Println(3.1 - b) // => -2.4
-	fmt.Println(a * a)   // => 100
-	fmt.Println(a / a)   // => 1
-	fmt.Println(11 / 5)  // => 2
+	var x = 3   //int type
+	var y = 3.2 //float type
 
-	fmt.Println(a * int(b))     // => 50
-	fmt.Println(float64(a) * b) // => 55
+	// x = x * y //compile error ->  mismatched types
 
-	x := 10
-	x++ // x is 11. Same as: x += 1
-	x-- // x is 10. Same as: x -= 1
+	x = x * int(y) // converting float64 to int
+	fmt.Println(x) // => 9
 
-	a = 10
-	a += 2 // => a is 12
-	a -= 3 // => a is 9
-	a *= 2 // => a is 18
-	a /= 3 // => a is 6
-	a %= 5 // => a is 1
+	y = float64(x) * y //converting int to float64
+	fmt.Println(y)     // => 28.8
 
-	fmt.Println(5 == 6)   // => false
-	fmt.Println(5 != 6)   // => true
-	fmt.Println(10 > 10)  // => false
-	fmt.Println(10 >= 10) // => true
-	fmt.Println(5 < 5)    // => false
-	fmt.Println(5 <= 5)   // => true
+	x = int(float64(x) * y)
+	fmt.Println(x) // => 259
 
-	fmt.Println(0 < 2 && 4 > 1) // => true
-	fmt.Println(1 > 5 || 4 > 5) // => false
-	fmt.Println(!(1 > 2))       // => true
+	//In Go types with different names are different types.
+	var a int = 5   // same size as int64 or int32 (platform specific)
+	var b int64 = 2 // int and int64 are not the same type
 
+	// a = b // error: cannot use b (type int64) as type int in assignment
+	a = int(b) // converting int64 to int (explicit conversion required)
+
+	// preventing unused variable error
+	_ = a
+
+	//** CONVERTING NUMBERS TO STRINGS AND STRINGS TO NUMBERS **//
+
+	s := string(99)            // int to rune (Unicode code point)
+	fmt.Println(s)             // => 99, the ascii code for symbol c
+	fmt.Println(string(34234)) // => 34234 is the unicode code point for 薺
+
+	// we cannot convert a float to a string similar to an int to a string
+	// s1 := string(65.1) // error
+
+	// converting float to string
+	var myStr = fmt.Sprintf("%f", 5.12)
+	fmt.Println(myStr) // => 5.120000
+
+	// converting int to string
+	var myStr1 = fmt.Sprintf("%d", 34234)
+	fmt.Println(myStr1) // => 34234
+
+	// converting string to float
+	var result, err = strconv.ParseFloat("3.142", 64)
+	if err == nil {
+		fmt.Printf("Type: %T, Value: %v\n", result, result) // => Type: float64, Value: 3.142
+	} else {
+		fmt.Println("Cannot convert to float64!")
+	}
+
+	// Atoi(string to int) and Itoa(int to string).
+	i, err := strconv.Atoi("-50")
+	s = strconv.Itoa(20)
+	fmt.Printf("i Type is %T, i value is %v\n", i, i) // => i Type is int, i value is -50
+	fmt.Printf("s Type is %T, s value is %q\n", s, s) // => s Type is string, s value is "20"
 }
