@@ -6,6 +6,7 @@ import (
 
 func main() {
 
-	x := (1 > 2) && (3 < 5)
-	fmt.Println(x)
+	var x int
+	y := 10
+	fmt.Println(20 < y || x == 0)
 }
