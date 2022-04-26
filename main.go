@@ -1,24 +1,31 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
 
-	i, err := strconv.Atoi("45")
-
-	if err != nil {
-		fmt.Println(err)
-	} else {
+	// printing numbers from 0 to 9
+	for i := 0; i < 10; i++ {
 		fmt.Println(i)
-
 	}
 
-	if i, err := strconv.Atoi("34"); err == nil {
-		fmt.Println("No error. i is ", i)
-	} else {
-		fmt.Println(err)
+	// has the same effect as a while loop in other languages
+	// there is no while loop in Go
+	j := 10
+	for j >= 0 {
+		fmt.Println(j)
+		j--
 	}
+
+	// handling of multiple variables in a for loop
+	for i, j := 0, 100; i < 10; i, j = i+1, j+1 {
+		fmt.Printf("i = %v, j = %v\n", i, j)
+	}
+
+	// infinite loop
+	// sum := 0
+	// for {
+	//  sum++
+	// }
+	// fmt.Println(sum) //this line is never reached
 }
