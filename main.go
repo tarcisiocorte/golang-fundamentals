@@ -1,23 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
+	fmt.Println("os.Args:", os.Args) // os.Args is slice of strings ([]string)
 
-	price, inStock := 100, true
-	if price >= 80 {
-		fmt.Println("Too Expensive")
-	}
-
-	if price <= 100 && inStock == true {
-		fmt.Println("Buy it!")
-	}
-
-	if price < 100 {
-		fmt.Println("It's cheap!")
-	} else if price == 100 {
-		fmt.Println("On the edge")
-	} else {
-		fmt.Println("It's Expensive!")
-	}
+	// accessing command line arguments using indexes
+	fmt.Println("Path:", os.Args[0])
+	fmt.Println("1st Argument:", os.Args[1])
+	fmt.Println("2nd Argument:", os.Args[2])
+	fmt.Println("No. of items inside os.Args:", len(os.Args))
 }
