@@ -4,22 +4,20 @@ import "fmt"
 
 func main() {
 
-	// declaring a variable of type uint8
-	var a uint8 = 10
-	var b byte // byte is an alias to uit8
+	price, inStock := 100, true
+	if price >= 80 {
+		fmt.Println("Too Expensive")
+	}
 
-	// even though they have different names, byte and uit8 are the same type because they are aliases
-	b = a // no error
-	_ = b
+	if price <= 100 && inStock == true {
+		fmt.Println("Buy it!")
+	}
 
-	// declaring a new alias named second for uint
-	// type alias_name = type_name
-	type second = uint
-
-	var hour second = 3600
-	fmt.Printf("hour type: %T\n", hour) // => hour type: uint
-
-	//no need to convert operations (same type)
-	fmt.Printf("Minutes in an hour: %d\n", hour/60) // => Minutes in an hour: 60
-
+	if price < 100 {
+		fmt.Println("It's cheap!")
+	} else if price == 100 {
+		fmt.Println("On the edge")
+	} else {
+		fmt.Println("It's Expensive!")
+	}
 }
